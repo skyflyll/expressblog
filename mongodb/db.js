@@ -1,11 +1,7 @@
 const mongoose =require('mongoose');
 const chalk = require('chalk');
-mongoose.connect('mongodb://localhost/edb')
 
-const db = mongoose.connection;
-
-db.once('open' ,() => {
-	console.log(
-    chalk.green('连接数据库成功')
-  );
+mongoose.connect('mongodb://localhost/edb',(err)=>{
+  if(err) return console.log(chalk.red('链接数据库失败！'));
+  console.log(chalk.green("链接数据库成功！"))
 })
