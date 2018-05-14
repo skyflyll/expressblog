@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <form action="/admin/create" method="post">
+        <div>
+            <label for="user_name">用户名：</label>
+            <input type="text" name="user_name" placeholder="输入用户名">
+        </div>
+        <div>
+            <label for="password">用户名：</label>
+            <input type="password" name="password" placeholder="输入密码">
+        </div>
+        <div>
+            <label for="avatar">头像：</label>
+            <input type="file" name="avatar">
+        </div>
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>
