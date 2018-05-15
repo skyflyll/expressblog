@@ -5,7 +5,6 @@
 var Admins = require('../models/admin').Admins
 module.exports = {
     create:(admin)=> {
-        console.log(admin)
         return Admins.create(admin)
     },
     getAdminByName:(name) =>{

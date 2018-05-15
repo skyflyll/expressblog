@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="/admin/create" method="post">
+    <form action="/admin/login" method="post" enctype="multipart/form-data">
         <div>
             <label for="user_name">用户名：</label>
             <input type="text" name="user_name" placeholder="输入用户名">
@@ -21,10 +21,12 @@
             <input type="password" name="password" placeholder="输入密码">
         </div>
         <div>
-            <label for="avatar">头像：</label>
-            <input type="file" name="avatar">
+            <label for="password">用户名：</label>
+            <input type="password" name="rpassword" placeholder="再次输入密码">
         </div>
-        <input type="submit" value="提交">
+
+        <input type="submit" value="登录">
+
     </form>
 </body>
 

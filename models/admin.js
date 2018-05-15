@@ -8,12 +8,12 @@ var ObjectId = Schema.ObjectId;
 var adminSchema = new Schema({
     user_name:String,
     password:String,
-    id:Number,
-    create_time:String,
+    id:{type:Number,default:1},
+    create_time:{type:Date,default:new Date()},
     admin:{type:String,default:'管理员'},
-    status:Number,
+    status:{type:Number,default:2},
     avatar:{type:String,default:'default.jpg'},
-    city:String,
+    city:{type:String,default:'贵阳'},
 })
 
 adminSchema.index({id: 1});
