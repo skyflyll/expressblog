@@ -10,11 +10,16 @@ var app = express();
 
 //链接数据库
 var mongo = require('./mongodb/db')
+var users = require('./models/users')
 
 //路由
 var adminRouter = require('./routes/admin');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+//验证码
+// var captcha = svgCaptcha.create();
+// console.log('captcha------------------',captcha);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

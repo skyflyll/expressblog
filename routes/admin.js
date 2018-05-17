@@ -9,6 +9,7 @@ var AdminModule = require('../controller/admin');
 var formidable = require('formidable');
 var moment = require('moment');
 var adminCheck = require('../middleware/adminCheck').login;
+var svgCaptcha = require('svg-captcha');
 
 /* GET home page. */
 router.get('/', adminCheck, function (req, res, next) {
@@ -49,6 +50,7 @@ router.post('/create', function (req, res, next) {
     // 新路径
     var newFileName = timeNow + ran + extName;
     var newPath = './upload/admin/' + newFileName
+
     // 换名操作
     fs.rename(oldPath, newPath, function (err) {
       if (err) {
@@ -140,9 +142,22 @@ router.post('/login', (req, res, next) => {
           message: "用户密码错误"
         })
       }
-
     })
   })
+})
+
+// 获取验证码
+router.get('/captcha', function (req, res) {
+  var captcha = svgCaptcha.create({
+    size: 4,
+    ignoreChars: '0o1i',
+    noise: 5,
+    color: 'red'
+  });
+  
+  req.session.captcha = captcha.text;
+  res.type('svg');
+  res.status(200).send(captcha.data);
 })
 
 module.exports = router;
